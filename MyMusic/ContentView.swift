@@ -8,9 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    let soundPlayer = SoundPlayer()
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ZStack{
+            Image("background")
+                .resizable()
+                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+            
+            HStack {
+                Button(action: {
+                    soundPlayer.cymbalPlay()
+                }) {
+                    ButtonImageView(imageName: "cymbal")
+                }
+                
+                Button(action: {
+                    soundPlayer.guitarPlay()
+                }) {
+                    ButtonImageView(imageName: "guitar")
+                }
+            }
+        }
     }
 }
 
